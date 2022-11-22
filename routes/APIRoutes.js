@@ -1,4 +1,5 @@
 const uuid = require('../helpers/uuid');
+const fsUtils = require('../helpers/fsUtils.js')
 const express = require('express');
 const app = express();
 const fs = require('fs');

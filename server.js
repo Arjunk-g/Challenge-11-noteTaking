@@ -4,8 +4,8 @@ const app = express();
 const HTMLRoute = require('./routes/HTMLroutes');
 const APIRoute = require('./routes/APIRoutes');
 // const router = express.Router();
-// const path = require('path');
-// const fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
 // const api = require('./public/assets/js/index.js');
 
