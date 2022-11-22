@@ -1,35 +1,33 @@
-const path = require('path');
+const uuid = require('../helpers/uuid');
 const express = require('express');
 const app = express();
 const fs = require('fs');
 
 
-app.get("/api/notes"'/', (req, res) => {
+app.get('/api/notes', (req, res) => {
     console.info(`${req.method} request received for all stored notes`);
 
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+    readFromFile('../db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 
 
-app.post('/', (req, res) => {
+app.post('/api/notes', (req, res) => {
     console.info(`${req.method} request received to add a note`);
     console.log(req.body);
   
-    const { username, topic, tip } = req.body;
+    const { note } = req.body;
   
     if (req.body) {
-      const newTip = {
-        username,
-        tip,
-        topic,
-        tip_id: uuid(),
+      const newNote = {
+        note,
+        note_id: uuid(),
       };
   
-      readAndAppend(newTip, './db/tips.json');
-      res.json(`Tip added successfully 🚀`);
+      readAndAppend(newNote, '../db/db.json');
+      res.json(`Note added`);
     } else {
-      res.error('Error in adding tip');
+      res.error('Error in adding a note');
     }
   });
 

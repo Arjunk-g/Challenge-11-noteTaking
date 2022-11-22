@@ -2,7 +2,7 @@ const express = require('express');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const HTMLRoute = require('./routes/HTMLroutes');
-// const APIRoute = require('./routes/APIRoutes');
+const APIRoute = require('./routes/APIRoutes');
 // const router = express.Router();
 // const path = require('path');
 // const fs = require('fs');
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('/public'));
 
 
-// app.use("/api", APIRoute);
+app.use("/api", APIRoute);
 app.use("/", HTMLRoute);
 
 
